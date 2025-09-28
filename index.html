@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Thrive Family Mental Health</title>
+<style>
+  :root{
+    --carolina-blue: hsl(201, 92%, 47%);
+    --oxford-blue-1: hsl(218, 70%, 18%);
+    --white: #ffffff;
+
+    --bg: var(--oxford-blue-1);
+    --card-bg: rgba(255,255,255,0.06);
+    --glass: rgba(255,255,255,0.04);
+    --radius: 16px;
+    --gap: 14px;
+    --shadow: 0 8px 24px rgba(0,0,0,0.35);
+    --card-size: clamp(84px, 22vw, 160px);
+    --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  }
+
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family:var(--font-sans);
+    background: linear-gradient(180deg, var(--bg) 0%, #0b2440 100%);
+    color:var(--white);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:28px;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+  }
+
+  .wrap{
+    width:100%;
+    max-width:1100px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-radius:20px;
+    padding:28px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(8px) saturate(120%);
+  }
+
+  header.top{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    margin-bottom:18px;
+  }
+
+  .logo {
+    width:66px;
+    height:56px;
+    border-radius:12px;
+    background:linear-gradient(200deg,var(--carolina-blue), rgba(0,140,255,0.9));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+    color:var(--white);
+    font-size:20px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35), inset 0 -6px 16px rgba(255,255,255,0.04);
+  }
+
+  header h1{
+    margin:0;
+    font-size:clamp(18px, 2.1vw, 24px);
+    letter-spacing: -0.02em;
+  }
+
+  header p{margin:0;opacity:0.9;font-size:14px}
+
+  .countdown{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap:var(--gap);
+    align-items:center;
+    justify-items:center;
+  }
+
+  /* card */
+  .count-card{
+    width:100%;
+    max-width:var(--card-size);
+    aspect-ratio:1/1;
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+    border-radius:14px;
+    padding:12px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    position:relative;
+    box-shadow: 0 10px 28px rgba(3,10,20,0.5);
+    transition:transform .28s cubic-bezier(.2,.9,.3,1);
+  }
+  .count-card:hover{ transform: translateY(-6px); }
+
+  .ring {
+    --size: clamp(72px, 14vw, 120px);
+    width: var(--size);
+    height: var(--size);
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    position:relative;
+    isolation:isolate;
+  }
+
+  /* circular ring built with conic-gradient */
+  .ring::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:50%;
+    padding:8px;
+    background:
+      conic-gradient(var(--carolina-blue) var(--pct, 0%), rgba(255,255,255,0.08) 0);
+    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 14px), black calc(100% - 14px));
+    mask: radial-gradient(farthest-side, transparent calc(100% - 14px), black calc(100% - 14px));
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.4));
+  }
+
+  .ring .inner{
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    border-radius:50%;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    z-index:2;
+    font-weight:700;
+  }
+
+  .value{
+    font-size:clamp(18px, 3.5vw, 28px);
+    line-height:1;
+    letter-spacing: -0.01em;
+  }
+
+  .label{
+    font-size:12px;
+    opacity:0.8;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+  }
+
+  /* small helper row under the grid for message */
+  .message{
+    margin-top:14px;
+    text-align:center;
+    font-size:14px;
+    opacity:0.95;
+  }
+
+  /* responsive */
+  @media (max-width:880px){
+    .countdown{ grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width:480px){
+    .countdown{ grid-template-columns: repeat(2, 1fr); gap:10px; }
+    .wrap{ padding:18px; border-radius:14px; }
+    header p{ display:none; }
+  }
+
+  /* small accessibility focus */
+  .count-card:focus{ outline:3px solid rgba(255,255,255,0.06); transform:translateY(-6px); }
+
+  /* utility tiny caption */
+  .small{
+    font-size:12px;
+    opacity:0.85;
+    margin-top:8px;
+  }
+
+  /* launched state */
+  .launched{
+    text-align:center;
+    padding:22px 12px;
+    border-radius:12px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+    color:var(--carolina-blue);
+    font-weight:700;
+    letter-spacing:0.02em;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap" role="region" aria-label="Countdown container">
+    <header class="top">
+      <div class="logo" aria-hidden="true">Thrive Family</div>
+      <div>
+        <h1>Launch Countdown</h1>
+        <!-- <p>Using your colors — carolina blue &amp; oxford blue</p> -->
+      </div>
+    </header>
+
+    <!-- set data-target to change the target date/time (ISO 8601) -->
+    <section class="countdown" data-target="2026-01-01T00:00:00Z" aria-live="polite" aria-label="Countdown timer">
+      <div class="count-card" tabindex="0" aria-hidden="false">
+        <div class="ring" id="daysRing" role="img" aria-label="Days remaining">
+          <div class="inner">
+            <div class="value" id="days">0</div>
+            <div class="label">Days</div>
+          </div>
+        </div>
+        <div class="small">to go</div>
+      </div>
+
+      <div class="count-card" tabindex="0" aria-hidden="false">
+        <div class="ring" id="hoursRing" role="img" aria-label="Hours remaining">
+          <div class="inner">
+            <div class="value" id="hours">0</div>
+            <div class="label">Hours</div>
+          </div>
+        </div>
+        <div class="small">left</div>
+      </div>
+
+      <div class="count-card" tabindex="0" aria-hidden="false">
+        <div class="ring" id="minsRing" role="img" aria-label="Minutes remaining">
+          <div class="inner">
+            <div class="value" id="minutes">0</div>
+            <div class="label">Minutes</div>
+          </div>
+        </div>
+        <div class="small">left</div>
+      </div>
+
+      <div class="count-card" tabindex="0" aria-hidden="false">
+        <div class="ring" id="secsRing" role="img" aria-label="Seconds remaining">
+          <div class="inner">
+            <div class="value" id="seconds">0</div>
+            <div class="label">Seconds</div>
+          </div>
+        </div>
+        <div class="small">and counting</div>
+      </div>
+    </section>
+
+    <div class="message" id="message">Stay tuned — great things are coming.</div>
+  </div>
+<script>
+(function(){
+  const section = document.querySelector('.countdown');
+
+  // === Compute target date: Friday of this week at 00:00:00 ===
+  const now = new Date();
+  const day = now.getDay(); // Sunday=0, Monday=1, ..., Friday=5
+  let diff = 5 - day;       // days until Friday
+  if (diff < 0) diff += 7;  // if past Friday, go to next week
+  const target = new Date(now.getFullYear(), now.getMonth(), now.getDate() + diff, 0, 0, 0);
+
+  const daysEl = document.getElementById('days');
+  const hoursEl = document.getElementById('hours');
+  const minsEl = document.getElementById('minutes');
+  const secsEl = document.getElementById('seconds');
+
+  const rings = {
+    days: document.getElementById('daysRing'),
+    hours: document.getElementById('hoursRing'),
+    minutes: document.getElementById('minsRing'),
+    seconds: document.getElementById('secsRing')
+  };
+
+  // Record initial total ms from now → target
+  const now0 = Date.now();
+  const initialTotalMs = Math.max(1, Math.abs(target - now0));
+
+  function pad(n){ return String(n).padStart(2, '0'); }
+
+  function update(){
+    const now = new Date();
+    let diff = target - now;
+    if (diff <= 0){
+      section.innerHTML = `<div class="launched" role="status" aria-live="polite">🎉 It's Friday! 🎉</div>`;
+      document.getElementById('message').textContent = "Happy Friday!";
+      clearInterval(timer);
+      return;
+    }
+
+    const secs = Math.floor(diff / 1000) % 60;
+    const mins = Math.floor(diff / (1000 * 60)) % 60;
+    const hours = Math.floor(diff / (1000 * 60 * 60)) % 24;
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+    daysEl.textContent = String(days);
+    hoursEl.textContent = pad(hours);
+    minsEl.textContent = pad(mins);
+    secsEl.textContent = pad(secs);
+
+    // ring percentages
+    const secPct = (secs / 60) * 100;
+    const minPct = (mins / 60) * 100;
+    const hourPct = (hours / 24) * 100;
+    const elapsedMs = Math.max(0, initialTotalMs - (target - now));
+    const dayPct = Math.min(100, Math.max(0, (elapsedMs / initialTotalMs) * 100));
+
+    rings.seconds.style.setProperty('--pct', `${secPct}%`);
+    rings.minutes.style.setProperty('--pct', `${minPct}%`);
+    rings.hours.style.setProperty('--pct', `${hourPct}%`);
+    rings.days.style.setProperty('--pct', `${dayPct}%`);
+
+    document.getElementById('message').textContent =
+      `${days} days, ${hours} hours, ${mins} minutes, ${secs} seconds until 3rd September, 2025 Friday Stay tuned — great things are coming.`;
+  }
+
+  // Styling for rings
+  const styleSheet = document.createElement('style');
+  styleSheet.textContent = `
+    .ring::before{ background: conic-gradient(var(--carolina-blue) var(--pct,0%), rgba(255,255,255,0.08) 0); }
+    .ring .inner { color: var(--white); }
+  `;
+  document.head.appendChild(styleSheet);
+
+  // Start
+  update();
+  const timer = setInterval(update, 1000);
+
+  document.addEventListener('visibilitychange', function(){
+    if (!document.hidden) update();
+  });
+
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yinka – Thriving Family LLC</title>
+  <style>
+    :root {
+      --light-steel-blue: hsl(218, 33%, 77%);
+      --royal-blue-light: hsl(225, 68%, 53%);
+      --flickr-blue_30: hsla(225, 68%, 53%, 0.3);
+      --carolina-blue: hsl(201, 92%, 47%);
+      --oxford-blue-1: hsl(218, 70%, 18%);
+      --oxford-blue-2: hsl(217, 100%, 12%);
+      --oxford-blue-3: hsl(218, 71%, 11%);
+      --white: hsl(0, 0%, 100%);
+      --ff-poppins: "Poppins", sans-serif;
+      --fs-1: 3.2rem;
+      --fs-2: 2.4rem;
+      --fs-3: 1.8rem;
+      --fs-4: 1.6rem;
+      --fw-800: 800;
+      --fw-600: 600;
+      --shadow-1: 0 15px 40px rgba(0,0,0,0.3);
+      --radius-6: 14px;
+      --transition: 0.3s ease;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--ff-poppins);
+      background: linear-gradient(135deg, var(--oxford-blue-2), var(--oxford-blue-3));
+      color: var(--white);
+      line-height: 1.6;
+      min-height: 100vh;
+      padding: 30px;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 2px, transparent 2px);
+      background-size: 50px 50px;
+      top: -50%;
+      left: -50%;
+      animation: moveBg 60s linear infinite;
+      z-index: 0;
+    }
+    @keyframes moveBg {
+      100% { transform: translate(50px, 50px); }
+    }
+
+    .profile-container {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      max-width: 1100px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(16px);
+      border-radius: var(--radius-6);
+      padding: 60px;
+      box-shadow: var(--shadow-1);
+      animation: fadeInUp 1.2s ease forwards;
+    }
+
+    .profile-img {
+      flex-shrink: 0;
+      max-width: 320px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 6px solid var(--royal-blue-light);
+      box-shadow: 0 0 40px var(--flickr-blue_30);
+      animation: zoomIn 1.4s ease forwards;
+    }
+
+    .profile-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .profile-text {
+      max-width: 600px;
+      color: aqua;
+    }
+
+    .profile-text h1 {
+      font-size: 20px;
+      font-weight: var(--fw-800);
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    .profile-text p {
+      font-size: 16px;
+      color:aqua;
+      margin-bottom: 16px;
+    }
+
+    .mission {
+      background: rgba(255, 255, 255, 0.12);
+      padding: 20px 25px;
+      border-radius: var(--radius-6);
+      border-left: 5px solid var(--carolina-blue);
+      font-size: var(--fs-4);
+      color: var(--white);
+      box-shadow: var(--shadow-1);
+      margin-bottom: 30px;
+      transition: var(--transition);
+    }
+
+    .mission:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.45);
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .btn {
+      background: var(--carolina-blue);
+      color: var(--white);
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-weight: var(--fw-600);
+      text-decoration: none;
+      transition: var(--transition);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+
+    .btn:hover {
+      background: var(--royal-blue-light);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes zoomIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @media (max-width: 768px) {
+      .profile-container { flex-direction: column; padding: 40px; text-align: center; }
+      .profile-img { max-width: 220px; }
+      .buttons { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="profile-container">
+    <div class="profile-img">
+      <!-- Replace with actual image -->
+      <img src="../assets/images/2522b962-a03b-49e2-afc5-d8184dfa9256.jpg" alt="Yinka – Registered Nurse">
+    </div>
+    <div class="profile-text">
+      <h1>Yinka, MSN, RN</h1>
+      <p>
+        For nearly ten years, Yinka has been assisting families to grow, adapt, and find balance in their lives. 
+        She is a dedicated <strong>Registered Nurse</strong> specializing in newborn and postpartum care, bringing 
+        compassion and clinical expertise to the families she serves. Yinka holds a 
+        <strong>Master’s degree in Clinical Nurse Leader</strong> from Seton Hall University, where she cultivated 
+        strong leadership, evidence-based practice, and care coordination skills.
+      </p>
+      <p>
+        In addition to her nursing background, Yinka is the administrator of 
+        <strong>Thriving Family for Mental Health Services</strong>, where she plays a vital role in supporting 
+        clients, promoting family wellness, and bridging the gap between medical and emotional care. 
+        Her work emphasizes <em>holistic care</em>, recognizing that the physical, emotional, and mental well-being 
+        of patients, parents, and children are deeply connected.
+      </p>
+      <div class="mission" style="font-size: 16px;">
+        🌿 Yinka’s mission is to nurture and empower families, ensuring every stage of life — from birth to 
+        parenthood — is supported with compassion, balance, and holistic well-being.
+      </div>
+      <div class="buttons">
+        <a href="../appaointment_booking/index.html" class="btn">📅 Book Appointment</a>
+        <a href="#" class="btn">📧 Contact</a>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

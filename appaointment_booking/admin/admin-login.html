@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Admin Login</title>
+  <style>
+    :root {
+      --carolina-blue: hsl(201, 92%, 47%);
+      --oxford-blue-1: hsl(218, 70%, 18%);
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, var(--oxford-blue-1), var(--carolina-blue));
+    }
+
+    .login-box {
+      background: var(--white);
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      width: 350px;
+      text-align: center;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    .login-box h2 {
+      margin-bottom: 1.5rem;
+      color: var(--oxford-blue-1);
+      font-size: 1.6rem;
+      font-weight: 600;
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 1.2rem;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      transition: border 0.3s ease;
+    }
+
+    .input-group input:focus {
+      border: 1px solid var(--carolina-blue);
+      outline: none;
+      box-shadow: 0 0 6px rgba(0, 136, 255, 0.3);
+    }
+
+    button {
+      width: 100%;
+      padding: 0.9rem;
+      background: var(--carolina-blue);
+      border: none;
+      color: var(--white);
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background: hsl(201, 92%, 40%);
+      transform: translateY(-2px);
+    }
+
+    .footer-text {
+      margin-top: 1.2rem;
+      font-size: 0.85rem;
+      color: #555;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>Admin Login</h2>
+    <div class="input-group">
+      <input type="text" id="username" placeholder="Username"/>
+    </div>
+    <div class="input-group">
+      <input type="password" id="password" placeholder="Password"/>
+    </div>
+    <button onclick="login()">Login</button>
+    <p class="footer-text">Secure access for administrators only</p>
+  </div>
+
+  <script>
+    const API_BASE = "https://appointment-beta-beryl.vercel.app/api";
+
+    async function login() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      try {
+        const res = await fetch(`${API_BASE}/admin-login`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, password })
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          alert(data.message || "Login failed");
+          return;
+        }
+
+        localStorage.setItem("adminToken", data.token);
+        window.location.href = "admin-dashboard.html"; // redirect after success
+      } catch (err) {
+        console.error("Login error:", err);
+        alert("Login request failed. Check console.");
+      }
+    }
+  </script>
+</body>
+</html>

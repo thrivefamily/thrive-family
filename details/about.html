@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Thriving Family LLC</title>
+  <style>
+    :root {
+      --light-steel-blue: hsl(218, 33%, 90%);
+      --royal-blue-light: hsl(225, 68%, 53%);
+      --carolina-blue: hsl(201, 92%, 47%);
+      --oxford-blue-1: hsl(218, 70%, 18%);
+      --cultured: hsl(0, 0%, 97%);
+      --white: hsl(0, 0%, 100%);
+      --sonic-silver: hsl(0, 0%, 35%);
+      --gradient: linear-gradient(120deg, var(--carolina-blue), var(--royal-blue-light));
+
+      --ff-roboto: "Roboto", sans-serif;
+      --ff-poppins: "Poppins", sans-serif;
+
+      --fs-1: 2.2rem;
+      --fs-2: 1.6rem;
+      --fs-3: 1.1rem;
+      --fs-4: 0.95rem;
+
+      --fw-800: 800;
+      --fw-700: 700;
+      --fw-500: 500;
+
+      --section-padding: 50px;
+      --radius: 12px;
+      --shadow: 0 6px 18px rgba(0,0,0,0.08);
+      --transition: 0.3s ease;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--ff-roboto);
+      background: var(--cultured);
+      color: var(--oxford-blue-1);
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--gradient);
+      color: var(--white);
+      padding: 50px 20px 70px;
+      text-align: center;
+      position: relative;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      background: var(--cultured);
+      clip-path: ellipse(70% 100% at 50% 100%);
+    }
+
+    header h1 {
+      font-family: var(--ff-poppins);
+      font-size: var(--fs-1);
+      font-weight: var(--fw-800);
+      margin: 0 0 8px;
+    }
+
+    header p {
+      font-size: var(--fs-3);
+      max-width: 600px;
+      margin: auto;
+      opacity: 0.95;
+    }
+
+    /* ABOUT */
+    section.about {
+      padding: var(--section-padding) 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      align-items: flex-start;
+    }
+
+    .about-text {
+      flex: 1 1 480px;
+      background: var(--white);
+      padding: 25px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .about-text h2 {
+      font-family: var(--ff-poppins);
+      font-size: var(--fs-2);
+      font-weight: var(--fw-700);
+      color: var(--carolina-blue);
+      margin-bottom: 10px;
+    }
+
+    .about-text p {
+      font-size: var(--fs-4);
+      margin-bottom: 10px;
+      color: var(--sonic-silver);
+      line-height: 1.7;
+    }
+
+    .about-image {
+      flex: 1 1 340px;
+      text-align: center;
+    }
+
+    .about-image img {
+      width: 100%;
+      max-width: 360px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: transform 0.3s var(--transition);
+    }
+
+    .about-image img:hover {
+      transform: scale(1.02);
+    }
+
+    /* FOUNDER */
+    .founder {
+      background: var(--white);
+      padding: 35px 20px;
+      text-align: center;
+      margin: 40px auto;
+      max-width: 800px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border-left: 6px solid var(--carolina-blue);
+    }
+
+    .founder h2 {
+      font-family: var(--ff-poppins);
+      font-size: var(--fs-2);
+      font-weight: var(--fw-700);
+      color: var(--oxford-blue-1);
+      margin-bottom: 15px;
+    }
+
+    .founder p {
+      font-size: var(--fs-4);
+      color: var(--oxford-blue-1);
+      margin-bottom: 12px;
+      line-height: 1.7;
+    }
+
+    .founder strong {
+      display: block;
+      margin-top: 18px;
+      font-size: var(--fs-3);
+      color: var(--carolina-blue);
+      font-weight: var(--fw-700);
+    }
+
+    /* TEAM */
+    .team {
+      background: var(--white);
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .team h2 {
+      font-family: var(--ff-poppins);
+      font-size: var(--fs-2);
+      font-weight: var(--fw-700);
+      margin-bottom: 20px;
+      color: var(--oxford-blue-1);
+    }
+
+    .team-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .team-card {
+      background: var(--cultured);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      transition: transform 0.2s var(--transition);
+    }
+
+    .team-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .team-card img {
+      width: 100%;
+      border-radius: var(--radius);
+      margin-bottom: 12px;
+    }
+
+    .team-card h3 {
+      font-family: var(--ff-poppins);
+      font-size: var(--fs-3);
+      margin: 0 0 3px;
+      color: var(--carolina-blue);
+    }
+
+    .team-card p {
+      font-size: var(--fs-4);
+      color: var(--sonic-silver);
+      margin: 0;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--oxford-blue-1);
+      color: var(--white);
+      text-align: center;
+      padding: 15px;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 900px) {
+      section.about {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>About Us</h1>
+    <p>Creating safe, compassionate spaces where individuals and families find healing, hope, and strength.</p>
+  </header>
+
+  <section class="about" style="padding-top: 10px;">
+    <div class="about-text">
+      <h2>Our Story</h2>
+      <p>At <strong>Thriving Family LLC</strong>, we believe that mental health is the foundation for a healthy, fulfilling life. Our practice was founded with the vision of creating a safe, compassionate space where individuals and families can find healing, hope, and strength.</p>
+      <p>We provide personalized, evidence-based care tailored to the needs of each client.</p>
+      <p>Our team specializes in psychiatric evaluations, medication management, therapy, and wellness support for individuals across all stages of life.</p>
+      <p>We don’t just treat symptoms—we empower individuals and families to thrive.</p>
+    </div>
+
+    <div class="about-image">
+      <img src="../assets/images/kid-doing-occupational-therapy-session-with-psychologist (1).jpg" alt="Thriving Family Counseling">
+    </div>
+  </section>
+
+  <!-- Founder Section -->
+  <section class="founder" style="padding-top: 1px;">
+    <h2>Founder’s Message</h2>
+    <p>As a nurse and psychiatric mental health provider, I’ve seen firsthand how mental health impacts every part of life. I started Thriving Family LLC to create a safe, supportive space where individuals and families can find hope, healing, and strength.</p>
+    <p>It is my passion and privilege to walk alongside you on your journey to wellness.</p>
+    <strong>Funmi, APRN, CRNP, PMHNP-BC <br> Founder & CEO</strong>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team">
+    <h2>Meet Our Team</h2>
+    <div class="team-container">
+      <div class="team-card">
+        <img src="../assets/images/3e5068c8-5b4c-40b9-aa82-5b05b06bbf03.jpg" alt="Team Member">
+        <h3>Nurse Funmi</h3>
+        <p>Founder</p>
+      </div>
+      <div class="team-card">
+        <img src="../assets/images/2522b962-a03b-49e2-afc5-d8184dfa9256.jpg" alt="Team Member" style="height: 70%;">
+        <h3>Nurse Yinka</h3>
+        <p>Administartor</p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Thriving Family LLC. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

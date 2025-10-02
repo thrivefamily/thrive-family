@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Contact — Bold Fixed</title>
+<style>
+  *, *::before, *::after {
+    box-sizing: border-box; /* ✅ Keep borders inside element width */
+  }
+
+  :root{
+    --royal-blue-light: hsl(225, 68%, 53%);
+    --carolina-blue: hsl(201, 92%, 47%);
+    --oxford-blue-1: hsl(218, 70%, 18%);
+    --oxford-blue-2: hsl(217, 100%, 12%);
+    --bg: #f6f8fb;
+    --card: #ffffff;
+    --muted: #667085;
+    --radius: 14px;
+    --shadow: 0 10px 28px rgba(20,30,60,0.12);
+    --max-w: 1000px;
+    --gap: 18px;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  }
+
+  body{
+    margin:0;
+    background:linear-gradient(180deg,#fbfdff 0%,var(--bg) 100%);
+    color: var(--oxford-blue-2);
+    -webkit-font-smoothing:antialiased;
+    display:flex;
+    justify-content:center;
+    padding:50px 16px;
+    min-height:100vh;
+  }
+
+  .wrap{
+    width:100%;
+    max-width: var(--max-w);
+    display:grid;
+    grid-template-columns: 1fr 380px;
+    gap: 32px;
+  }
+
+  .card{
+    background:#fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 32px;
+  }
+
+  /* Form card */
+  .form-card{
+    display:flex;
+    flex-direction:column;
+    gap: 18px;
+  }
+
+  .title{
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+  .logo-dot{
+    width:50px;height:50px;
+    border-radius:12px;
+    background: linear-gradient(135deg, var(--carolina-blue), var(--royal-blue-light));
+    display:grid;place-items:center;
+    color:#fff;font-weight:800;font-size:20px;
+    box-shadow:0 10px 28px rgba(32,56,119,0.25);
+  }
+  h1{font-size:26px;font-weight:800;margin:0;color:var(--oxford-blue-1);}
+  p.lead{margin:4px 0 0;color:var(--muted);font-size:15px;font-weight:500;}
+
+  /* Fields */
+  .fields{display:grid;grid-template-columns: repeat(2,1fr);gap:var(--gap);}
+  .full{grid-column:1/-1;}
+  .field{position:relative;display:block;}
+  input,textarea{
+    width:100%;
+    border:2px solid rgba(20,30,60,0.15);
+    padding:16px 14px 10px;
+    border-radius:12px;
+    outline:none;
+    font-size:15px;font-weight:500;
+    color:var(--oxford-blue-2);
+    transition:border-color .18s,box-shadow .18s;
+  }
+  textarea{min-height:150px;padding-top:22px;resize:vertical;}
+  label.floating{
+    position:absolute;left:14px;top:14px;
+    color:var(--muted);font-size:14px;font-weight:500;
+    pointer-events:none;transition:all .18s;
+  }
+  .field input:focus+label,
+  .field textarea:focus+label,
+  .field input:not(:placeholder-shown)+label,
+  .field textarea:not(:placeholder-shown)+label{
+    transform:translateY(-14px) scale(.85);
+    color:var(--carolina-blue);font-weight:600;
+  }
+  .field input:focus,.field textarea:focus{
+    border-color:var(--carolina-blue);
+    box-shadow:0 6px 20px rgba(32,121,255,0.12);
+  }
+
+  /* Buttons */
+  .actions{display:flex;gap:14px;margin-top:16px;flex-wrap:wrap;}
+  .btn{
+    border:0;
+    background: linear-gradient(90deg,var(--carolina-blue),var(--royal-blue-light));
+    color:#fff;
+    padding:14px 22px;
+    border-radius:12px;
+    font-weight:700;font-size:15px;
+    cursor:pointer;
+    box-shadow:0 10px 22px rgba(34,63,170,0.2);
+    display:flex;align-items:center;gap:10px;
+    transition:.2s;
+  }
+  .btn:hover{transform:translateY(-2px);opacity:.95;}
+  .secondary{
+    background:#fff;
+    border:2px solid rgba(20,30,60,0.12);
+    color:var(--oxford-blue-1);
+    padding:12px 18px;
+    border-radius:12px;
+    font-weight:600;
+    cursor:pointer;
+  }
+
+  /* Info card */
+  .info-card{display:flex;flex-direction:column;gap:18px;}
+  .info-card h2{font-size:18px;font-weight:700;margin:0;color:var(--oxford-blue-1);}
+  .contact-line{
+    display:flex;gap:12px;align-items:center;
+    padding:14px;border-radius:12px;
+    border:2px solid rgba(20,30,60,0.08);
+    background:#fdfdfd;font-weight:600;
+  }
+  .contact-line b{font-size:15px;color:var(--oxford-blue-1);}
+  .contact-line small{color:var(--muted);font-size:13px;}
+
+  @media(max-width:920px){
+    .wrap{grid-template-columns:1fr;}
+    .fields{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="card form-card">
+      <div class="title">
+        <div class="logo-dot">T</div>
+        <div>
+          <h1>Get in Touch</h1>
+          <p class="lead">Send us a message — we’ll reply within 24 hours.</p>
+        </div>
+      </div>
+          <form action="https://api.web3forms.com/submit" method="POST" class="footer-form">
+  <!-- Hidden API Access Key -->
+  <input type="hidden" name="access_key" value="69b4b4df-89cd-4e96-899a-08ef34dfeb44">
+
+  <div class="fields">
+    <div class="field">
+      <input type="text" name="name" placeholder=" " required />
+      <label class="floating">Full Name</label>
+    </div>
+    <div class="field">
+      <input type="email" name="email" placeholder=" " required />
+      <label class="floating">Email Address</label>
+    </div>
+    <div class="field full">
+      <input type="text" name="subject" placeholder=" " />
+      <label class="floating">Subject</label>
+    </div>
+    <div class="field full">
+      <textarea name="message" placeholder=" " required></textarea>
+      <label class="floating">Message</label>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="btn" type="submit">🚀 Send Message</button>
+    <button type="reset" class="secondary">Clear</button>
+  </div>
+</form>
+
+    </section>
+
+    <aside class="card info-card">
+      <h2>📌 Contact Details</h2>
+      <div class="contact-line">⏰ <div><b>Hours</b> <br><small>Mon — Fri • 9:00–17:00</small></div></div>
+  <div class="contact-line">📧 
+  <div>
+    <b>Email</b>
+    <small>thrivingfamilyllc@gmail.com
+</small>
+  </div>
+</div>
+
+    </aside>
+  </main>
+</body>
+</html>
+

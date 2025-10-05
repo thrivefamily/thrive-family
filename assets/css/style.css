@@ -391,7 +391,7 @@ color: rgb(34, 33, 33);}
   border: 1px solid var(--light-gray);
   border-radius: var(--radius-4);
   padding: 30px;
-    background: linear-gradient(160deg, white, hsl(218, 33%, 77%));
+   
   color: rgb(0, 0, 29);
   border-radius: 16px;
   

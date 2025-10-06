@@ -291,7 +291,7 @@ body {
   top: calc(100% + 5px);
   left: 25px;
   right: 25px;
-  background-color: hsl(217, 100%, 12%);
+  background-color: aqua;
   padding-inline: 0;
   box-shadow: var(--shadow-1);
   max-height: 0;
@@ -302,7 +302,7 @@ body {
 
 .navbar.active {
   visibility: visible;
-  max-height: 244px;
+  max-height: 300px;
   transition-duration: 0.5s;
 }
 
@@ -1391,4 +1391,4 @@ color: rgb(34, 33, 33);}
 
 
 
-
+    

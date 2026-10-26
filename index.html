@@ -50,6 +50,14 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Roboto:wght@400;500;600&display=swap"
     rel="stylesheet">
+<style id="hero-fix">
+  .hero-title { font-size: clamp(28px, 4vw, 46px) !important; line-height: 1.2 !important; }
+  .hero .container { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; }
+  .hero-text { max-width: 560px; }
+  .hero-banner { width: 100%; max-width: 560px; margin: 0 auto; }
+  .hero-banner img { width: 100%; height: auto; border-radius: 12px; }
+  @media (max-width: 768px) { .hero .container { grid-template-columns: 1fr; } }
+</style>
 </head>
 
 <body id="top">
@@ -72,6 +80,11 @@
             thrivingfamilyllc@gmail.com
 
           </a>
+        </li>
+
+        <li class="contact-item">
+          <ion-icon name="call-outline"></ion-icon>
+          <a href="tel:+12404106569" class="contact-link">240-410-6569</a>
         </li>
 
 
@@ -176,29 +189,28 @@
     <div class="hero-content">
 
       <!-- Subtitle -->
-      <p class="section-subtitle">Welcome to Thriving Family LLC</p>
+      <p class="section-subtitle">Welcome to Thriving Family Services</p>
 
       <!-- Main Heading -->
-      <h1 class="h1 hero-title" >Your Health Matters</h1>
+      <h1 class="h1 hero-title">Comprehensive Psychiatric Care for You and Your Family</h1>
 
       <!-- Supporting Text -->
       <p class="hero-text">
-        Compassionate healthcare for your entire family. From routine checkups to specialized treatments,
-        we are here to keep you healthy and thriving every day.
+        Thriving Family Services provides psychiatric evaluations, medication management, and treatment for substance use disorder. Our board-certified psychiatric nurse practitioners offer compassionate care for depression, anxiety, ADHD, bipolar disorder, PTSD, and recovery.
       </p>
 
 
       <a href="./appaointment_booking/index.html">
-        <button type="submit" class="btn">Book Appointment</button>      </a>  
+        <button type="button" class="btn">Book a Comprehensive Psychiatric Evaluation</button>      </a>  
    
 
     </div>
 
     <!-- Hero Image -->
     <figure class="hero-banner">
-      <img src="./assets/images/medium-shot-young-people-church-praying (1).jpg" 
+      <img src="./assets/images/man-talking-lady-psychologist-session (1).jpg" 
         width="587" height="700" 
-        alt="Healthcare hero banner" 
+        alt="Psychiatric nurse practitioner talking with a patient during a session" 
         class="w-100">
     </figure>
 
@@ -915,14 +927,14 @@ Specialized treatment for new mothers experiencing postpartum mood disorders or 
   </li>
 
   <li>
-    <a href="#" class="footer-link">
+    <a href="#service" class="footer-link">
     
       <span class="span">Our Services</span>
     </a>
   </li>
 
   <li>
-    <a href="#" class="footer-link">
+    <a href="#doctors" class="footer-link">
    
       <span class="span">Our Team</span>
     </a>
@@ -949,28 +961,28 @@ Specialized treatment for new mothers experiencing postpartum mood disorders or 
   </li>
 
   <li>
-    <a href="#" class="footer-link">
+    <a href="#service" class="footer-link">
  
       <span class="span">General Consultation</span>
     </a>
   </li>
 
   <li>
-    <a href="#" class="footer-link">
+    <a href="#service" class="footer-link">
  
       <span class="span">Maternal & Child Mental Health</span>
     </a>
   </li>
 
     <li>
-    <a href="#" class="footer-link">
+    <a href="#service" class="footer-link">
  
       <span class="span">Medication Management</span>
     </a>
   </li>
 
   <li>
-    <a href="#" class="footer-link">
+    <a href="#service" class="footer-link">
    
       <span class="span">Mental Health Support</span>
     </a>
@@ -979,7 +991,7 @@ Specialized treatment for new mothers experiencing postpartum mood disorders or 
 
 
   <li>
-    <a href="#" class="footer-link">
+    <a href="#service" class="footer-link">
 
       <span class="span">Mental Health Education</span>
     </a>
